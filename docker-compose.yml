@@ -38,7 +38,7 @@ services:
       MYSQL_DATABASE: serBooking
 
   adminer:
-    container_name: sowboy_admina
+    container_name: sowboy-admina
     image: adminer
     restart: always
     ports:
