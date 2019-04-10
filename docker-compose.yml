@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+
+  app:
+    container_name: sowboy_apps
+    image: symfonypower/php7-symfony:1.0.0
+    ports: 
+      - 9000:9000
+    links:
+      - db
+    volumes:
+      - ./:/var/www
+
+  apache:
+    container_name: sowboy_apache
+    image: symfonypower/apache:1.0.0
+    volumes:
+      - ./:/var/www/html
+      - ./apache-tools/logs:/var/log/apache2
+      - ./apache-tools/vhosts/service-booking.conf:/etc/apache2/sites-available/service-booking.conf:ro
+      - ./apache-tools/vhosts/service-booking.conf:/etc/apache2/sites-enabled/service-booking.conf:ro
+    links:
+      - db
+    ports:
+      - 80:80
+    privileged: true
+
+  db:
+    container_name: sowboy_db
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - ./dump-sql/:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: passroot
+      MYSQL_DATABASE: serBooking
+
+  adminer:
+    container_name: sowboy_admina
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    links:
+      - db
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: passroot   
+      PMA_HOST: db 

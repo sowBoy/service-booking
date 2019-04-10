@@ -15,5 +15,5 @@ framework:
     #fragments: true
     php_errors:
         log: true
-        
-    trusted_hosts: ['kuruma-api.local', 'localhost', '127.0.0.1']
+
+    trusted_hosts: ['service-booking.local', 'localhost', '127.0.0.1']

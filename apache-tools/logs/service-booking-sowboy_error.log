@@ -1,0 +1,2 @@
+[Tue Apr 09 16:26:48.713901 2019] [php7:warn] [pid 12] [client 172.18.0.1:38042] PHP Warning:  require(/var/www/html/vendor/autoload.php): failed to open stream: No such file or directory in /var/www/html/config/bootstrap.php on line 5
+[Tue Apr 09 19:35:41.832519 2019] [php7:warn] [pid 12] [client 172.22.0.1:48610] PHP Warning:  require(/var/www/html/vendor/autoload.php): failed to open stream: No such file or directory in /var/www/html/config/bootstrap.php on line 5
