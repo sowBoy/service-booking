@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   app:
-    container_name: sowboy_apps
+    container_name: sowboy-apps
     image: symfonypower/php7-symfony:1.0.0
     ports: 
       - 9000:9000
@@ -13,7 +13,7 @@ services:
       - ./:/var/www
 
   apache:
-    container_name: sowboy_apache
+    container_name: sowboy-apache
     image: symfonypower/apache:1.0.0
     volumes:
       - ./:/var/www/html
@@ -27,7 +27,7 @@ services:
     privileged: true
 
   db:
-    container_name: sowboy_db
+    container_name: sowboy-db
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
