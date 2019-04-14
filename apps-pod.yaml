@@ -4,7 +4,7 @@ metadata:
   name: symfony-api
 spec:
   volumes:
-    - name: code-pv-storage
+    - name: api-pv-storage
       persistentVolumeClaim:
        claimName: api-pv-claim
   containers:
@@ -16,22 +16,23 @@ spec:
     - name: MYSQL_DATABASE
       value: serBooking
     ports:
-    - containerPort: 3306
+     - containerPort: 3306
     
   - image: symfonypower/php7-symfony:1.0.0
     ports:
-    - containerPort: 9000
+     - containerPort: 9000
     name: sowboy-api-code
     volumeMounts:
-    - mountPath: /var/www
-      name: api-code
+     - mountPath: "/var/www"
+       name: api-pv-storage
   - image: symfonypower/apache:1.0.0
     ports:
-    - containerPort: 80
+     - containerPort: 80
+       name: "http-server"
     name: sowboy-booking-api
     volumeMounts:
-    - mountPath: /var/www/html
-      name: booking-api
+     - mountPath: "/var/www/html"
+       name: api-pv-storage
   
       
   
