@@ -17,9 +17,9 @@ spec:
       # directory location on host
       path: ./
       
- - image: symfonypower/apache:1.0.0
-   ports:
-   - containerPort: 80
+  - image: symfonypower/apache:1.0.0
+    ports:
+    - containerPort: 80
     name: sowboy-booking-api
     volumeMounts:
     - mountPath: /var/www/html
@@ -30,18 +30,14 @@ spec:
       # directory location on host
       path: ./
       
- - image: mysql:8.0
-   name: mysql
-   imagePullPolicy: Never
-   env:
-   - name: MYSQL_ROOT_PASSWORD
-     value: passroot
-   - name: MYSQL_DATABASE
-     value: serBooking
-   - name: MYSQL_USER
-     value: db_user
-   - name: MYSQL_PASSWORD
-     value: passroot
-   args: ["--default-authentication-plugin=mysql_native_password"]
-   ports:
-   - containerPort: 3306
+  - image: mysql:8.0
+    name: mysql
+    imagePullPolicy: Never
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: passroot
+    - name: MYSQL_DATABASE
+      value: serBooking
+    args: ["--default-authentication-plugin=mysql_native_password"]
+    ports:
+    - containerPort: 3306
