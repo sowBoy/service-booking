@@ -4,9 +4,9 @@ metadata:
   name: symfony-api
 spec:
   volumes:
-    - name: task-pv-storage
+    - name: code-pv-storage
       persistentVolumeClaim:
-       claimName: task-pv-claim
+       claimName: api-pv-claim
   containers:
   - image: mysql:5.6
     name: mysql
