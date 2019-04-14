@@ -30,8 +30,6 @@ services:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
-    volumes:
-      - ./dump-sql/:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: passroot
       MYSQL_DATABASE: serBooking
