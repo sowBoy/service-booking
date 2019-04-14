@@ -17,9 +17,6 @@ services:
     image: symfonypower/apache:1.0.0
     volumes:
       - ./:/var/www/html
-      - ./apache-tools/logs:/var/log/apache2
-      - ./apache-tools/vhosts/service-booking.conf:/etc/apache2/sites-available/service-booking.conf:ro
-      - ./apache-tools/vhosts/service-booking.conf:/etc/apache2/sites-enabled/service-booking.conf:ro
     links:
       - db
     ports:
@@ -39,17 +36,3 @@ services:
       MYSQL_ROOT_PASSWORD: passroot
       MYSQL_DATABASE: serBooking
 
-  adminer:
-    container_name: sowboy-admina
-    image: adminer
-    restart: always
-    ports:
-      - 8081:8080
-    labels: 
-      kompose.service.type: nodeport
-    links:
-      - db
-    environment:
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: passroot   
-      PMA_HOST: db 
