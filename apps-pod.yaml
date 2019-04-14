@@ -25,7 +25,7 @@ spec:
   - name: booking-api-code
     hostPath:
       # directory location on host
-      path: ./
+      path: /home/ubuntu/service-booking
       
   - image: symfonypower/apache:1.0.0
     ports:
@@ -38,7 +38,7 @@ spec:
   - name: booking-api
     hostPath:
       # directory location on host
-      path: ./
+      path: /home/ubuntu/service-booking
       
   
    
