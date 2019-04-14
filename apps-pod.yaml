@@ -20,9 +20,9 @@ spec:
     name: sowboy-api-code
     volumeMounts:
     - mountPath: /var/www
-      name: booking-api-code
+      name: api-code
   volumes:
-  - name: booking-api-code
+  - name: api-code
     hostPath:
       # directory location on host
       path: /home/ubuntu/service-booking
