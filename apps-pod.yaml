@@ -4,6 +4,16 @@ metadata:
   name: symfony-api
 spec:
   containers:
+  - image: mysql:5.6
+    name: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: passroot
+    - name: MYSQL_DATABASE
+      value: serBooking
+    ports:
+    - containerPort: 3306
+    
   - image: symfonypower/php7-symfony:1.0.0
     ports:
     - containerPort: 9000
@@ -30,13 +40,5 @@ spec:
       # directory location on host
       path: ./
       
-  - image: mysql:5.6
-    name: mysql
-    env:
-    - name: MYSQL_ROOT_PASSWORD
-      value: passroot
-    - name: MYSQL_DATABASE
-      value: serBooking
-    ports:
-    - containerPort: 3306
+  
    
