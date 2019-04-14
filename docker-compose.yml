@@ -9,14 +9,9 @@ services:
       - 9000:9000
     links:
       - db
-    volumes:
-      - ./:/var/www
-
   apache:
     container_name: sowboy-apache
     image: symfonypower/apache:1.0.0
-    volumes:
-      - ./:/var/www/html
     links:
       - db
     ports:
